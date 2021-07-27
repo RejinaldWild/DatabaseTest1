@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+// not used "using" is better to remove
 using System.Linq;
 using System.Threading.Tasks;
 using TestExc_with_ASPNet_Core_and_SQLite.Models;
@@ -12,6 +13,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
     [Route("[controller]")]
     public class HRController:ControllerBase
     {
+        // forgot about access modifiers? here you can add private and readonly
         HRService Service;
         public HRController(HRService service)
         {
@@ -19,6 +21,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         }
 
         [HttpGet]
+        // Instead of database entities, it is better to add view models (DTO)
         public ActionResult<List<Employee>> GetAll() => Service.GetAll();
 
         [HttpGet("{id}")]
@@ -40,13 +43,17 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
             }
             catch (Exception e)
             {
+                // it is better to use a logger to save such information
                 Console.WriteLine(e.Message);
+                // it would be nice if response contained information for the user what exactly went wrong
                 return BadRequest();
             }
+            // execution will not come here
             return Ok();
         }
 
         [HttpPost]
+        // No validation required?
         public IActionResult Create(Employee employee)
         {
             try
@@ -66,6 +73,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         public IActionResult Update(int id, Employee employee)
         {
             if (id != employee.Id) return BadRequest();
+            // This check is best done inside the Service.Update method
             Employee existEmployee = Service.Get(id);
             if (existEmployee == null) return BadRequest();
             try

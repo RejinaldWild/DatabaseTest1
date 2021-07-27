@@ -2,6 +2,7 @@ using System;
 
 namespace TestExc_with_ASP.Net_Core_and_SQLite
 {
+    // forgot to delete?
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

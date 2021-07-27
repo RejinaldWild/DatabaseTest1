@@ -16,6 +16,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Services
             Db = db;
         }
 
+        // Instead of a concrete implementation, it is better to return interfaces. In this case IList<>
         public List<Employee> GetAll()
         {
             return Db.EmployeeItems.ToList();
@@ -36,11 +37,16 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Services
         {   
             Employee employee = Get(id);
             Db.EmployeeItems.Remove(employee);
+            // if the employee has a shift, this will not cause an error?
             Db.SaveChanges();
         }
 
         public void Update(Employee employee)
         {
+            // It can be done much easier here:
+            // get the entity of an employee from the database by his id
+            // overwrite fields from input parameter
+            // it is better not to use database entities as an input parameter
             int index = Db.EmployeeItems.FirstOrDefault(p => p.Id == employee.Id).Id;
             if (index == -1) return;
             int minIndex = 0;

@@ -12,6 +12,9 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
 
     [ApiController]
     [Route("[controller]")]
+    // It will be more convenient if this controller is renamed to CheckpointController
+    // Read the requirements carefully. This controller should have two methods: 
+    // the first adds the beginning of the shift to a specific employee, and the second adds the end of the shift.
     public class EmployeeController : ControllerBase
     {
         EmployeeService Service;

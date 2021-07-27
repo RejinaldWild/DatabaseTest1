@@ -19,7 +19,8 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Models
 
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
-        
+
+        // Employees
         public DbSet<Employee> EmployeeItems { get; set; }
         public DbSet<TimeShift> TimeShifts { get; set; }
     }

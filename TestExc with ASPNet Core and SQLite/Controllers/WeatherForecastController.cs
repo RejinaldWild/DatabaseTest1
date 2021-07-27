@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestExc_with_ASP.Net_Core_and_SQLite.Controllers
 {
+    // forgot to delete?
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

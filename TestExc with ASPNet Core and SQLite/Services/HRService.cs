@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
-using System.Threading.Tasks;
+using TestExc_with_ASPNet_Core_and_SQLite.Converters;
 using TestExc_with_ASPNet_Core_and_SQLite.Models;
+using TestExc_with_ASPNet_Core_and_SQLite.ViewModels;
 
 namespace TestExc_with_ASPNet_Core_and_SQLite.Services
 {
@@ -16,9 +16,11 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Services
             Db = db;
         }
 
-        public List<Employee> GetAll()
+        public ICollection<EmployeeViewModel> GetAll()
         {
-            return Db.EmployeeItems.ToList();
+            return Db.EmployeeItems
+                .Include(c => c.LTimeShift)
+                .ToViewModels();
         }
 
         public Employee Get(int id) => Db.EmployeeItems.FirstOrDefault(p => p.Id == id);

@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TestExc_with_ASPNet_Core_and_SQLite.Models;
 using TestExc_with_ASPNet_Core_and_SQLite.Services;
-using Microsoft.AspNetCore.Mvc;
+using TestExc_with_ASPNet_Core_and_SQLite.ViewModels;
 
 namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
 {
@@ -19,7 +18,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Employee>> GetAll() => Service.GetAll();
+        public ActionResult<ICollection<EmployeeViewModel>> GetAll() => Ok(Service.GetAll());
 
         [HttpGet("{id}")]
         public ActionResult<Employee> Get(int id)

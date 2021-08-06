@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace TestExc_with_ASPNet_Core_and_SQLite.Models
@@ -20,7 +17,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Models
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
         
-        public DbSet<Employee> EmployeeItems { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<TimeShift> TimeShifts { get; set; }
     }
 }

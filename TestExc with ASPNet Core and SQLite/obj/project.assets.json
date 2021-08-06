@@ -1325,11 +1325,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
+      "projectUniqueName": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\DatabaseTest1\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
       "projectName": "TestExc with ASPNet Core and SQLite",
-      "projectPath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
+      "projectPath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\DatabaseTest1\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
       "packagesPath": "C:\\Users\\Hero\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite\\obj\\",
+      "outputPath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\DatabaseTest1\\TestExc with ASPNet Core and SQLite\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,11 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +23,7 @@ namespace TestExc_with_ASP.Net_Core_and_SQLite
         {
             services.AddDbContext<TestExcContext>(options =>
                options.UseSqlite("Data Source=Database.db"));
-            services.AddScoped<EmployeeService>();
+            services.AddScoped<CheckpointService>();
             services.AddScoped<HRService>(); //DI Scope <= read
             services.AddControllers();
         }

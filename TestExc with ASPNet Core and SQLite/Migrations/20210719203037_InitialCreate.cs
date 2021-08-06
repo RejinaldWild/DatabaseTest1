@@ -15,7 +15,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                     Surename = table.Column<string>(type: "TEXT", nullable: true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     SecondName = table.Column<string>(type: "TEXT", nullable: true),
-                    EmployeePosition = table.Column<int>(type: "INTEGER", nullable: false)
+                    Position = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +28,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    EmployeeId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Employee = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z9UVwVy7/ap73kQyaLs+bCCD35xXGAZgLFmsHPWN4YsGp6O6f/d/yfw3ik00iE/dJNgx4AAuZHijU8Al9B+Uyg==",
+  "dgSpecHash": "MO5noBUSbUultvUdRGK8111bNIWHaUxEAr0jALEHUp3GaX7rcbsxJGyTM2dRDZ5VFPbtCsUEvqliJIDbB8+RZQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
+  "projectFilePath": "D:\\Programming\\GitHubProject\\TestExc with ASPNet Core and SQLite\\DatabaseTest1\\TestExc with ASPNet Core and SQLite\\TestExc with ASPNet Core and SQLite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hero\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hero\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -7,7 +7,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EmployeeItems",
+                name: "Employees",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -19,7 +19,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeItems", x => x.Id);
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,9 +34,9 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                 {
                     table.PrimaryKey("PK_TimeShift", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TimeShift_EmployeeItems_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "EmployeeItems",
+                        name: "FK_TimeShift_Employees_EmployeeId",
+                        column: x => x.Id,
+                        principalTable: "Employees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -53,7 +53,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                 name: "TimeShift");
 
             migrationBuilder.DropTable(
-                name: "EmployeeItems");
+                name: "Employees");
         }
     }
 }

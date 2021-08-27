@@ -6,7 +6,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.ViewModels
     public class EmployeeViewModel
     {
         public int Id { get; set; }
-        public string Surname { get; set; }
+        public string Surename { get; set; }
         public string Name { get; set; }
         public string SecondName { get; set; }
         public Position Position { get; set; }

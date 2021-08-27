@@ -15,14 +15,14 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Converters
                 Name = employee.Name,
                 Position = employee.Position,
                 SecondName = employee.SecondName,
-                Surname = employee.Surname,
+                Surename = employee.Surename,
                 TimeShifts = employee.TimeShifts.ToViewModels()
             };
         }
 
-        public static ICollection<EmployeeViewModel> ToViewModels(this IEnumerable<Employee> employee)
+        public static ICollection<EmployeeViewModel> ToViewModels(this IEnumerable<Employee> employees)
         {
-            return employee
+            return employees
                 .Select(a => a.ToViewModel())
                 .ToList();
         }

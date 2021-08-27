@@ -18,7 +18,11 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         }
 
         [HttpGet]
-        public ActionResult<EmployeeViewModel> GetAll() => Ok(Service.GetAll());
+        public ActionResult<ICollection<EmployeeViewModel>> GetAll()
+        {
+            Service.GetAll();
+            return Ok();
+        }
 
         [HttpGet("{id}")]
         public ActionResult<EmployeeViewModel> Get(int id)
@@ -47,26 +51,16 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         [HttpPost]
         public IActionResult Create(EmployeeViewModel employee)
         {
-            try
-            {
-                Service.Add(employee);
-                return CreatedAtAction(nameof(Create), employee);
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Fill the all fields");
-            }
-            return Ok();
+            Service.Add(employee);
+            return CreatedAtAction(nameof(Create), employee);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, EmployeeViewModel employee)
         {               
             try
-            {
-                EmployeeViewModel existEmployee = Service.Get(id);
-                Service.Update(id, employee, existEmployee);
+            {   
+                Service.Update(id, employee);
                 return Ok();
             }
             catch (ArgumentNullException e)
@@ -94,8 +88,6 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            EmployeeViewModel employee = Service.Get(id);
-            if (employee == null) return BadRequest();
             try
             {
                 Service.Delete(id);

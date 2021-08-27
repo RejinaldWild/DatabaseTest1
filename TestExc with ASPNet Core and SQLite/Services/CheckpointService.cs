@@ -9,8 +9,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Services
 {
     //КПП сервис
     public class CheckpointService
-    {  
-        //int Count = 0;
+    {   
         private readonly TestExcContext Db;
         
         public CheckpointService(TestExcContext db)
@@ -21,75 +20,40 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Services
         public ICollection<TimeShiftViewModel> GetAll()
         {
             return Db.TimeShifts
-                .ToViewModels()
-                .ToList();
+                .ToViewModels();
         }
         
-        public void AddStartShift(DateTime employeeShift, int id)
-        {   
-            Db.TimeShifts
-                .ToViewModels()
-                .ToList()
-                .Find(p => p.Id == id);
+        public void AddShiftPoint(int id,CheckpointViewModel checkpoint)
+        {            
+            if (checkpoint.Id != id) return;
 
-            Db.TimeShifts
-                .ToViewModels()
-                .ToList()
-                .Find(p => p.StartShift != null)
-                .StartShift.Add(employeeShift.TimeOfDay);
+            if (checkpoint.CheckpointStart == DateTime.Today &&
+                checkpoint.CheckpointEnd != DateTime.Today) return;
+            else if (checkpoint.CheckpointStart.Date != DateTime.Today &&
+                checkpoint.CheckpointEnd == DateTime.Today) return;
 
+            if (checkpoint.CheckpointStart == DateTime.Today && checkpoint.CheckpointEnd == null)
+            {   
+                checkpoint.CheckpointEnd = DateTime.Now;
+                Db.TimeShifts
+                    .FirstOrDefault(p => p.Id == id)
+                    .EndShift.HasValue.ToString();
+
+                checkpoint.WorkingHours = checkpoint.CheckpointEnd.Value - checkpoint.CheckpointStart;
+
+                Db.TimeShifts
+                    .FirstOrDefault(p => p.Id == id)
+                    .WorkingHours.Add(checkpoint.WorkingHours);                
+            }
+            else
+            {
+                checkpoint.CheckpointStart = DateTime.Now;
+                Db.TimeShifts
+                .FirstOrDefault(p => p.Id == id)
+                .StartShift.Add(checkpoint.CheckpointStart.TimeOfDay);
+            }
+            
             Db.SaveChanges();
-
-            //employeeShift.Employee = employee;
-            //Count++;
-
-            //int ShiftCount = Count % 2;
-            //if (ShiftCount == 1)
-            //{
-            //    employeeShift.StartShift = DateTime.Now;
-            //}
-            //else
-            //{
-            //    employeeShift.EndShift = DateTime.Now;
-            //    employeeShift.WorkingHours = employeeShift.EndShift - employeeShift.StartShift;
-            //}
-            //Db.TimeShifts.Add(employeeShift);
-            //employee.TimeShifts.Add(employeeShift);
-
-        }
-
-        public void AddEndShift(DateTime employeeShift, int id)
-        {
-
-            Db.TimeShifts
-                .ToViewModels()
-                .ToList()
-                .Find(p => p.Id == id);
-
-            Db.TimeShifts
-                .ToViewModels()
-                .ToList()
-                .Find(p => p.StartShift != null)
-                .StartShift.Add(employeeShift.TimeOfDay);
-
-            Db.SaveChanges();
-
-            //employeeShift.Employee = employee;
-            //Count++;
-
-            //int ShiftCount = Count % 2;
-            //if (ShiftCount == 1)
-            //{
-            //    employeeShift.StartShift = DateTime.Now;
-            //}
-            //else
-            //{
-            //    employeeShift.EndShift = DateTime.Now;
-            //    employeeShift.WorkingHours = employeeShift.EndShift - employeeShift.StartShift;
-            //}
-            //Db.TimeShifts.Add(employeeShift);
-            //employee.TimeShifts.Add(employeeShift);
-            //Db.SaveChanges();
         }
     }
 }

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestExc_with_ASPNet_Core_and_SQLite.Models;
 
 namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
 {
     [DbContext(typeof(TestExcContext))]
-    partial class TestExcContextModelSnapshot : ModelSnapshot
+    [Migration("20210826000959_UpdateModels")]
+    partial class UpdateModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
                     b.Property<string>("SecondName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Surename")
+                    b.Property<string>("Surname")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

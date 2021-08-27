@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestExc_with_ASPNet_Core_and_SQLite.Models;
 
 namespace TestExc_with_ASPNet_Core_and_SQLite.Migrations
 {
     [DbContext(typeof(TestExcContext))]
-    partial class TestExcContextModelSnapshot : ModelSnapshot
+    [Migration("20210827003657_FixedHours")]
+    partial class FixedHours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

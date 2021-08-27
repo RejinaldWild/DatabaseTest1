@@ -22,9 +22,9 @@ namespace TestExc_with_ASP.Net_Core_and_SQLite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TestExcContext>(options =>
-               options.UseSqlite("Data Source=Database.db"));
+               options.UseSqlite($"Data Source=Database.db"));
             services.AddScoped<CheckpointService>();
-            services.AddScoped<HRService>(); //DI Scope <= read
+            services.AddScoped<HRService>();
             services.AddControllers();
         }
 
